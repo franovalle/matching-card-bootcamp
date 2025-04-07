@@ -1,5 +1,231 @@
+const eachSection = ['🚕','🚕','🗽','🗽','🌃','🌃','🍕','🍕','🍎','🍎']
+const randomEachSection = []
+
+function eachSectionReturn() {
+	//while (eachSection.length <=0)
+	for (let i = 0; i < 10;i++)
+		{
+	let randomNumber = Math.floor(Math.random() * eachSection.length )
+	let theCards = eachSection.splice(randomNumber,1)[0];
+	randomEachSection.push(theCards)
+}
+return randomEachSection
+}
+document.querySelectorAll('.one').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx
+ function theGame(e, i) {
+ 
+ console.log(i);
+ 
+	let theSquares = eachSectionReturn()
+	e.target.innerText = theSquares[i]
+
+ }
+
+ function theMatch() {
+	let one = document.querySelector('#one').innerText
+	let two = document.querySelector('#two').innerText
+	let three = document.querySelector('#three').innerText
+	let four = document.querySelector('#four').innerText
+	let five = document.querySelector('#five').innerText
+	let six = document.querySelector('#six').innerText
+	let seven = document.querySelector('#seven').innerText
+	let eight = document.querySelector('#eight').innerText
+	let nine = document.querySelector('#nine').innerText
+	let ten = document.querySelector('#nine').innerText
+
+	if (one === two || one === two || one === three || one === four || one === five || one === six|| one === seven || one === eight|| one === nine || one === ten || one !== '' ||
+		two === three || two === four ||  two === five || two === six|| two === seven || two === eight|| two === nine || two === ten || two !== '' ||
+		three === four ||  three === five || three === six|| three === seven || three === eight|| three === nine || three === ten || three !== '' ||
+		four === five || four === six|| four === seven || four === eight|| four === nine || four === ten || four !== '' ||
+		five === six|| five === seven || five=== eight|| five === nine || five=== ten || five !== '' ||
+		six === seven || six== eight|| six === nine || six === ten || six !== '' ||
+		seven == eight|| seven === nine || seven === ten || seven !== '' ||
+		 eight === nine || eight === ten || eight !== '' || nine  === ten || nine !== '')
+	
+		
+		
+		
+		{
+		displayWinningResultsTwo()
+
+	}
+	else {
+	  displayLosingResults()
+	}
+
+}
+
+function displayLosingResults() {
+document.querySelector('#results').innerText = ('TRY AGAIN!')
+}
+function displayWinningResultsOne() {
+	document.querySelector('#results').innerText = ("PLAYER ONE WINS! ✖️ ✖️ ✖️ ")
+	
+}
+
+
+
+
+
+ /*function theMatch() {
+	let one = document.querySelector('#one').innerText
+	let two = document.querySelector('#two').innerText
+	let three = document.querySelector('#three').innerText
+	let four = document.querySelector('#four').innerText
+	let five = document.querySelector('#five').innerText
+	let six = document.querySelector('#six').innerText
+	let seven = document.querySelector('#seven').innerText
+	let eight = document.querySelector('#eight').innerText
+	let nine = document.querySelector('#nine').innerText
+	let ten = document.querySelector('#nine').innerText
+
+	if (one === two || one === two || one === three || one === four || one === five || one === six|| one === seven || one === eight|| one === nine || one === ten || one !== '' ||
+		two === three || two === four ||  two === five || two === six|| two === seven || two === eight|| two === nine || two === ten || two !== '' ||
+		three === four ||  three === five || three === six|| three === seven || three === eight|| three === nine || three === ten || three !== '' ||
+		four === five || four === six|| four === seven || four === eight|| four === nine || four === ten || four !== '' ||
+		five === six|| five === seven || five=== eight|| five === nine || five=== ten || five !== '' ||
+		six === seven || six== eight|| six === nine || six === ten || six !== '' ||
+		seven == eight|| seven === nine || seven === ten || seven !== '' ||
+		 eight === nine || eight === ten || eight !== '' || nine  === ten || nine !== '')
+	
+		
+		//&& one !== '' || four === five && five === six && four !== '' || seven === eight && eight === nine && seven !== '' || one === four && four === seven && one !== '' || two === five && five === eight && two !== '' || three === six && six === nine && three !== '' || one === five && five === nine && one !== '' || seven === five && five === three && seven !== '') 
+		
+		{
+		displayWinningResultsTwo()
+
+	}
+	else {
+		//displayLosingResults()
+	}
+
+}
+
+//function displayLosingResults() {
+//document.querySelector('#results').innerText = ('TRY AGAIN!')
+//}
+function displayWinningResultsOne() {
+	document.querySelector('#results').innerText = ("PLAYER ONE WINS! ✖️ ✖️ ✖️ ")
+	
+}
+function displayWinningResultsTwo() {
+	document.querySelector('#results').innerText = ("PLAYER TWO WINS! ⭕ ⭕ ⭕ ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Note to self on how to make a matching card game 
+/*const theFlipSide = {
+	cardOne: "🚕",
+	cardTwo: "🗽",
+	cardThree: "🌃",
+	cardFour: "🍕",
+	cardFive: "🍎"
+
+}
+ console.log(theFlipSide);
+ //const eachSection = Object.values(theFlipSide)
+ console.log(eachSection);
+ 
+ let theIndex = [0,1,2,3,4]
+
+ 
+ eachSectionReturn()
+ function eachSectionReturn() {
+ 
+	let randomNumber = Math.floor(Math.random() * eachSection.length )
+	let theIndex = [0,1,2,3,4]
+	let randomEachSection = []
+	console.log(randomNumber, 'Random number');
+	console.log(theIndex, 'The index');
+	console.log(randomEachSection, 'random each section');
+ 
+	//index length is > 0 , for it to keep running
+	//for (let i = theIndex.length ; i > 4;i++)
+		//{
+ 
+ 
+ 
+		if (theIndex.find((e) => e == randomNumber) != undefined){
+			randomEachSection.push(eachSection[randomNumber] )
+			//theIndex = theIndex.filter((e) => e != randomNumber)
+ console.log(theIndex,'filtered');
+ console.log(randomNumber, 'w/n if');
+ 
+ 
+ 
+ }
+ theIndex = theIndex.filter((e) => e != randomNumber)
+	}
+	
+	//return eachSection[Math.floor(Math.random() * eachSection.length )]
+ 
+	// allow that item to be outputted twice and then remove it from list
+ 
+ //const map = eachSection.map((x) => x * 2);
+ //console.log(map);
+ 
+ 
+ document.querySelectorAll('.one').forEach(section => section.addEventListener('click', theGame))
+ function theGame(e) {
+ 
+ 
+	let theSquares = eachSectionReturn()
+	e.target.innerText = (theSquares)
+ }
+
+/*const theFlipSide = {
+	cardOne: "🚕",
+	cardTwo: "🗽",
+	cardThree: "🌃",
+	cardFour: "🍕",
+	cardFive: "🍎"
+
+}
+console.log(theFlipSide);
+const eachSection = Object.values(theFlipSide)
+console.log(eachSection);
+eachSectionReturn()
+
+
+function eachSectionReturn(){
+	let randomNumber = Math.floor(Math.random() * eachSection.length )
+	let theIndex = [0,1,2,3,4]
+	let randomEachSection = []
+	console.log(randomNumber, 'Random number');
+	console.log(theIndex, 'The index');
+	console.log(randomEachSection, 'random each section');
+
+}
+
+if (theIndex.find((e) => e == randomNumber) != undefined)
+	{
+	randomEachSection.push(eachSection[randomNumber] )
+	
+	console.log(theIndex,'filtered');
+	console.log(randomNumber, 'w/n if');
+}
+document.querySelectorAll('.one').forEach(section => section.addEventListener('click', theGame))
+function theGame(e) {
+	
+
+	let theSquares = eachSectionReturn()
+    e.target.innerText = (theSquares)
+
+}
+
+
 //draft 3
-const theFlipSide = {
+/*const theFlipSide = {
 	cardOne: "🚕",
 	cardTwo: "🗽",
 	cardThree: "🌃",
@@ -9,7 +235,7 @@ const theFlipSide = {
 }
 function matchGame (){
 	const itemsUsed = {}
-}
+}*/
 
 
 //draft 2
