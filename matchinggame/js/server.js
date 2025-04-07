@@ -1,4 +1,4 @@
-const http = require('http');
+/*const http = require('http');
 const fs = require('fs')
 const url = require('url');
 const querystring = require('querystring');
@@ -81,4 +81,4 @@ const server = http.createServer(function (req, res) {
   }
 });
 
-server.listen(8000);
+server.listen(8000);*/
