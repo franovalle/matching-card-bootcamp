@@ -61,7 +61,7 @@ const whenCardIsClicked = (card) => {
 	}
 	if (a.eachSection === b.eachSection) {
 		a.state = "incorrect";
-		b.state = "incorrect"
+		b.state = "incorrect" 
 	}
 	setTimeout (() => {
 		a.state = "hidden";
