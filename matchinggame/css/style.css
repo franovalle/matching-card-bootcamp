@@ -1,6 +1,55 @@
+/* Box Model Hack */
 
+  *{
+    box-sizing: border-box;
+  }
+  
+  /* Clear fix hack */
+  .clearfix:after {
+       content: ".";
+       display: block;
+       clear: both;
+       visibility: hidden;
+       line-height: 0;
+       height: 0;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  /******************************************
+  /* BASE STYLES
+  /*******************************************/
+  
+  body {
+  
+    clear: both;
+  }
+  
+  
+  /******************************************
+  /* LAYOUT
+  /*******************************************/
+  header {
+  
+  }
+  
+  footer {
+  
+  }
+  
+  /******************************************
+  /* ADDITIONAL STYLES
+  /*******************************************/
+  section {
+    border: 1px solid black;
+    height: 200px;
+    width: 50%; 
+    float: left; 
+  }
 
-/* notes to self: trying out the way I got help from stackoverflow question i posted*/
+/* notes to self: trying out the way I got help from stackoverflow question i posted
 .grid {
   display: grid;
   grid-template-rows: repeat (2, 1fr);
@@ -16,5 +65,5 @@
     width: 10%;
     
 
-  }
+  }*/
 

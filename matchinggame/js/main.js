@@ -1,7 +1,43 @@
+//submission 
+const eachSection = ['🚕','🚕','🗽','🗽','🌃','🌃','🍕','🍕','🍎','🍎']
+
+const randomEachSection = []
+
+
+
+
+function eachSectionReturn() {
+	//while (eachSection.length <=0)
+	for (let i = 0; i < 10;i++)
+		{
+	let randomNumber = Math.floor(Math.random() * eachSection.length )
+	let theCards = eachSection.splice(randomNumber,1)[0];//mdn splice : The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+	randomEachSection.push(theCards)
+}
+return randomEachSection
+}
+document.querySelectorAll('.one').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx & e is for an event 
+ function theGame(e, i) {
+ 
+ console.log(i);
+ //console.log(e);
+ 
+   
+	
+	let theSquares = eachSectionReturn()
+	e.target.innerText = theSquares[i]
+	//theMatch()
+	
+
+	
+
+
+ }
+
 //note to self: I wrote my question on stackoverflow, and was given feedback on how to look at this problem a different way will give it a try 
 //Here I have to assign the cards a random value which was the issue I was having because each time the images were not correlating w the #
 
-const shuffleTheCards = (theArray) => theArray
+/*const shuffleTheCards = (theArray) => theArray
 .map (value => ( {rank : Math.random(),value})) //mdn .map , The map() method on an array creates a new array by applying a given function to each element of the original array
 .sort ((a, b) => a.rank -b.rank) //mdn, The sort() method sorts an array in place and returns the same array. 
 .map (a => a.value)
@@ -51,7 +87,7 @@ document.querySelectorAll('.card').forEach((card, index) => {
 	}))
 // now is how to do the flip part, need to keep working on this -but I am learning how to do this following the post I had asked a question on in Stackoverflow
 const whenCardIsClicked = (card) => {
-	if (whatIsOnTheCard.some(card => card.state === "incorrect")) return; 
+	if (whatIsOnTheCard.some (card => card.state === "incorrect")) return; 
 	if (card.state === "hidden"){
 		card.state = "turned";
 	}
@@ -66,17 +102,18 @@ const whenCardIsClicked = (card) => {
 	setTimeout (() => {
 		a.state = "hidden";
 		b.state = "hidden";
-		matchGame ();
+		render ();
 	}, 2100);
+	render ()
 }
 
 //now to play the game 
-const matchGame = () => {
+const render = () => {
 	letsPlay.forEach(card => {
 		const theText = card.state === " hidden" ? "" : card.symbol;
 		const theColor = (
-			card.state === "correct" ? "orange":
-			card.state === "incorrect" ?  "yellow": "red"
+			card.state === "correct" ? "white":
+			card.state === "incorrect" ?  "white": "white"
 	);
 	card.e.innerText = theText;
 	card.e.style.background = theColor;
@@ -91,7 +128,7 @@ const matchGame = () => {
  
   
 
- matchGame ()
+render()
   
 
 
