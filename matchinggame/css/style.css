@@ -1,16 +1,20 @@
-*{
-  box-sizing: border-box;
+
+
+/* notes to self: trying out the way I got help from stackoverflow question i posted*/
+.grid {
+  display: grid;
+  grid-template-rows: repeat (2, 1fr);
+  grid-template-columns: repeat (5, 1fr);
+  gap: 1rem ; 
 }
+  
+  .card {
+    background-color: pink;
+    border: 1px solid black;
+    aspect-ratio : 1;
+    display:   flex; 
+    width: 10%;
+    
 
-.clear {
-  clear: both;
-}
+  }
 
-
-
-section {
-  border: 1px solid black;
-  height: 200px;
-  width: 50%; 
-  float: left; 
-}

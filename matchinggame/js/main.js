@@ -1,4 +1,103 @@
-const eachSection = ['🚕','🚕','🗽','🗽','🌃','🌃','🍕','🍕','🍎','🍎']
+//note to self: I wrote my question on stackoverflow, and was given feedback on how to look at this problem a different way will give it a try 
+//Here I have to assign the cards a random value which was the issue I was having because each time the images were not correlating w the #
+
+const shuffleTheCards = (theArray) => theArray
+.map (value => ( {rank : Math.random(),value})) //mdn .map , The map() method on an array creates a new array by applying a given function to each element of the original array
+.sort ((a, b) => a.rank -b.rank) //mdn, The sort() method sorts an array in place and returns the same array. 
+.map (a => a.value)
+
+const repeatTheArray = (theArray) => theArray
+.concat (theArray)
+
+//here I need to define the cards, and i had done that before 
+const eachSection = ['🚕','🗽','🌃','🍕','🍎']
+
+const cardsRepeat = repeatTheArray(eachSection)
+
+//make the card 
+const theGame =  shuffleTheCards(repeatTheArray(eachSection))
+console.log(theGame);//cards were doubled 
+
+//now i have to make the board into a grid, i had that done that as well , i had this in my previous code 
+let gameCards = null; 
+document.querySelectorAll('.card').forEach((card, index) => {
+	card.addEventListener ('click', e => {
+		if (gameCards === index) {
+			return ;
+		}
+		if (gameCards === null) {
+			gameCards = index ; 
+			console.log(`The first card chosen is ${gameCards}`);
+		}
+			else {
+				console.log(`${gameCards} and ${index}`);
+				gameCards = null ;
+			}
+
+				
+			})
+			
+		})
+	//mdn : The null value represents the intentional absence of any object value. It is one of JavaScript's primitive values and is treated as falsy for boolean operations.
+	
+	//next part is the logic- i really struggling with the logic part need to keep working on it 
+	const whatIsOnTheCard = document.querySelectorAll('.card')
+	let letsPlay = Array
+	.from(whatIsOnTheCard)
+	.map((e,i) => ({
+		symbol: theGame[i],
+		e,
+		state: "hidden"
+	}))
+// now is how to do the flip part, need to keep working on this -but I am learning how to do this following the post I had asked a question on in Stackoverflow
+const whenCardIsClicked = (card) => {
+	if (whatIsOnTheCard.some(card => card.state === "incorrect")) return; 
+	if (card.state === "hidden"){
+		card.state = "turned";
+	}
+	const whatIsTurned = whatIsOnTheCard.filter (card => card.state === "turned")
+	if (whatIsTurned.length === 2){
+		const [a, b] = turned ;
+	}
+	if (a.eachSection === b.eachSection) {
+		a.state = "incorrect";
+		b.state = "incorrect"
+	}
+	setTimeout (() => {
+		a.state = "hidden";
+		b.state = "hidden";
+		matchGame ();
+	}, 2100);
+}
+
+//now to play the game 
+const matchGame = () => {
+	letsPlay.forEach(card => {
+		const theText = card.state === " hidden" ? "" : card.symbol;
+		const theColor = (
+			card.state === "correct" ? "orange":
+			card.state === "incorrect" ?  "yellow": "red"
+	);
+	card.e.innerText = theText;
+	card.e.style.background = theColor;
+
+});
+}
+
+  
+  
+ letsPlay. forEach(card => {
+	card.e.addEventListener('click', () => whenCardIsClicked (card));})
+ 
+  
+
+ matchGame ()
+  
+
+
+
+
+/*const eachSection = ['🚕','🚕','🗽','🗽','🌃','🌃','🍕','🍕','🍎','🍎']
 
 const randomEachSection = []
 
@@ -33,18 +132,17 @@ document.querySelectorAll('.one').forEach((section, i) => section.addEventListen
 
  }
 
- //note to self: need to keep working 
  /*function theMatch() {
- let one = document.querySelector('#one').textContent
- let two = document.querySelector('#two').textContent
- let three = document.querySelector('#three').textContent
- let four = document.querySelector('#four').textContent
- let five = document.querySelector('#five').textContent
- let six = document.querySelector('#six').textContent
- let seven = document.querySelector('#seven').textContent
- let eight = document.querySelector('#eight').textContent
- let nine = document.querySelector('#nine').textContent
- let ten = document.querySelector('#nine').textContent
+ let one = document.querySelector('#one').innerHTML
+ let two = document.querySelector('#two').innerHTML
+ let three = document.querySelector('#three').innerHTML
+ let four = document.querySelector('#four').innerHTML
+ let five = document.querySelector('#five').innerHTML
+ let six = document.querySelector('#six').innerHTML
+ let seven = document.querySelector('#seven').innerHTML
+ let eight = document.querySelector('#eight').innerHTML
+ let nine = document.querySelector('#nine').innerHTML
+ let ten = document.querySelector('#nine').innerHTML
 
  if (one === two || one === two || one === three || one === four || one === five || one === six|| one === seven || one === eight|| one === nine || one === ten || one !== '' ||
 	 two === three || two === four ||  two === five || two === six|| two === seven || two === eight|| two === nine || two === ten || two !== '' ||
@@ -500,31 +598,3 @@ function theGame(e) {
 	e.target.innerText = (theSquares)
 
 }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
