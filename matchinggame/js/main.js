@@ -1,11 +1,10 @@
-//submission 
-const eachSection = ['🚕','🚕','🗽','🗽','🌃','🌃','🍕','🍕','🍎','🍎']
+/*Note: I was very frustated with this project, I had multiple request for help and tried asking for help on stackoverflow, below is my new understanding on how to do project 
+here is the link to the stackoverflow: https://stackoverflow.com/a/79559582/29576377*/
 
+const eachSection = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
 const randomEachSection = []
 
-
-
-
+// function each randomizing the board
 function eachSectionReturn() {
 	//while (eachSection.length <=0)
 	for (let i = 0; i < 10;i++)
@@ -15,24 +14,57 @@ function eachSectionReturn() {
 	randomEachSection.push(theCards)
 }
 return randomEachSection
+
+
 }
-document.querySelectorAll('.one').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx & e is for an event 
+
+document.querySelectorAll('.card').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx & e is for an event 
  function theGame(e, i) {
  
  console.log(i);
- //console.log(e);
+
  
    
 	
 	let theSquares = eachSectionReturn()
 	e.target.innerText = theSquares[i]
-	//theMatch()
-	
-
-	
+console.log(theSquares[i]);
 
 
  }
+
+function theMatch() {
+	let one = document.querySelector('#one').innerHTML
+	let two = document.querySelector('#two').innerHTML
+	let three = document.querySelector('#three').innerHTML
+	let four = document.querySelector('#four').innerHTML
+	let five = document.querySelector('#five').innerHTML
+	let six = document.querySelector('#six').innerHTML
+	let seven = document.querySelector('#seven').innerHTML
+	let eight = document.querySelector('#eight').innerHTML
+	let nine = document.querySelector('#nine').innerHTML
+	let ten = document.querySelector('#nine').innerHTML
+	
+
+
+   
+	if (one === two  || one === two || one === three || one === four || one === five || one === six|| one === seven || one === eight|| one === nine || one === ten || one !== '' ||
+		two === three || two === four ||  two === five || two === six|| two === seven || two === eight|| two === nine || two === ten || two !== '' ||
+		three === four ||  three === five || three === six|| three === seven || three === eight|| three === nine || three === ten || three !== '' ||
+		four === five || four === six|| four === seven || four === eight|| four === nine || four === ten || four !== '' ||
+		five === six|| five === seven || five=== eight|| five === nine || five=== ten || five !== '' ||
+		six === seven || six== eight|| six === nine || six === ten || six !== '' ||
+		seven == eight|| seven === nine || seven === ten || seven !== '' ||
+		 eight === nine || eight === ten || eight !== '' || nine  === ten || nine !== '')
+		 
+		 {
+			document.querySelector('#results').innerText = ('Its a MATCH')
+		 }
+	else
+	{
+		document.querySelector('#results').innerText = ('TRY AGAIN!')
+	}
+   }
 
 //note to self: I wrote my question on stackoverflow, and was given feedback on how to look at this problem a different way will give it a try 
 //Here I have to assign the cards a random value which was the issue I was having because each time the images were not correlating w the #

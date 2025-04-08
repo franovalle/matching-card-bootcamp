@@ -1,4 +1,5 @@
-/*const http = require('http');
+//continue to practice 
+const http = require('http');
 const fs = require('fs')
 const url = require('url');
 const querystring = require('querystring');
@@ -18,7 +19,7 @@ const server = http.createServer(function (req, res) {
 
 
   else if (page == '/api') {
-    const eachSection = ['🚕', '🚕', '🗽', '🗽', '🌃', '🌃', '🍕', '🍕', '🍎', '🍎']
+    /*const eachSection = ['🚕', '🚕', '🗽', '🗽', '🌃', '🌃', '🍕', '🍕', '🍎', '🍎']
     const randomEachSection = []
 
     function eachSectionReturn() {
@@ -37,7 +38,7 @@ const server = http.createServer(function (req, res) {
        let theSquares = eachSectionReturn()
        e.target.innerText = theSquares[i]
      
-      }
+      }*/
     if ('pick' in params) {
       if (params['pick'] == (theSquares[i])) {
         res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -81,4 +82,4 @@ const server = http.createServer(function (req, res) {
   }
 });
 
-server.listen(8000);*/
+server.listen(8000);

@@ -15,7 +15,7 @@ return randomEachSection
 
 }
 console.log(randomEachSection)
-document.querySelectorAll('.one').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx
+document.querySelectorAll('.cards').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx
  function theGame(e, i) {
  
  console.log(i);
@@ -33,12 +33,12 @@ document.querySelectorAll('.one').forEach((section, i) => section.addEventListen
 
     });
 
-}*/
+}
 
  
 
 
-/*document.querySelector('#clickMe').addEventListener('click', makeReq)
+document.querySelector('#clickMe').addEventListener('click', makeReq)
 
 function makeReq(){
 
