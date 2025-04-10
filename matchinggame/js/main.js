@@ -1,27 +1,8 @@
-
+//final submission 
 const eachSection = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
 const shuffleEachSection = eachSection.sort((a,b) => 0.5 - Math.random()) //mdn: 
 console.log(shuffleEachSection);
 
-//const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-//const shuffledArray = array.sort((a, b) => 0.5 - Math.random());
-
-
-// function each randomizing the board
-/*function eachSectionReturn() {
-	//while (eachSection.length <=0)
-	for (let i = 0; i < 10;i++)
-		{
-	
-	let theCards = eachSection.splice(Math.floor(Math.random()* eachSection.length), 1)//mdn splice : The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
-	randomEachSection.push(theCards)
-	
-	
-}
-return randomEachSection
-
-
-}*/
 var numberOfClicks = 0
 var firstClickIndex = null
 var secondClickIndex = null
@@ -66,6 +47,80 @@ for (let i = 0; i < allCards.length; i++){
 	
 	
 }
+
+/*
+//this code finally worked !!!
+const eachSection = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
+const shuffleEachSection = eachSection.sort((a,b) => 0.5 - Math.random()) //mdn: 
+console.log(shuffleEachSection);
+
+var numberOfClicks = 0
+var firstClickIndex = null
+var secondClickIndex = null
+
+
+let allCards = document.querySelectorAll('.card')
+console.log(allCards);
+for (let i = 0; i < allCards.length; i++){
+	allCards[i].addEventListener('click', theGame)
+
+	function theGame(event) {
+		console.log(event);
+		console.log(i);
+		numberOfClicks++
+		if (numberOfClicks === 1){
+			event.target.innerText = shuffleEachSection[i]
+			firstClickIndex = i
+			
+		}
+		else if (numberOfClicks === 2){
+			event.target.innerText = shuffleEachSection[i]
+			secondClickIndex = i
+			console.log((allCards[firstClickIndex].innerText.charCodeAt() == allCards[secondClickIndex].innerText.charCodeAt()));
+			
+			if (allCards[firstClickIndex].innerText.charCodeAt() == allCards[secondClickIndex].innerText.charCodeAt()){
+				console.log('you win!');
+				
+
+			}
+			else {
+				allCards[firstClickIndex].innerText = ''
+				allCards[secondClickIndex].innerText = ''
+
+
+			}
+			numberOfClicks = 0
+		}
+
+			//remove everything after done w second click 
+	
+	}
+	
+	
+}
+*/
+
+//thought process 
+//const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//const shuffledArray = array.sort((a, b) => 0.5 - Math.random());
+
+
+// function each randomizing the board
+/*function eachSectionReturn() {
+	//while (eachSection.length <=0)
+	for (let i = 0; i < 10;i++)
+		{
+	
+	let theCards = eachSection.splice(Math.floor(Math.random()* eachSection.length), 1)//mdn splice : The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+	randomEachSection.push(theCards)
+	
+	
+}
+return randomEachSection
+
+
+}
+
 
 // .forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx & e is for an event 
 
