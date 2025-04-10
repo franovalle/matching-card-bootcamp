@@ -1,6 +1,161 @@
-/*Note: I was very frustated with this project, I had multiple request for help and tried asking for help on stackoverflow, below is my new understanding on how to do project 
-here is the link to the stackoverflow: https://stackoverflow.com/a/79559582/29576377*/
 
+const eachSection = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
+const shuffleEachSection = eachSection.sort((a,b) => 0.5 - Math.random()) //mdn: 
+console.log(shuffleEachSection);
+
+//const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//const shuffledArray = array.sort((a, b) => 0.5 - Math.random());
+
+
+// function each randomizing the board
+/*function eachSectionReturn() {
+	//while (eachSection.length <=0)
+	for (let i = 0; i < 10;i++)
+		{
+	
+	let theCards = eachSection.splice(Math.floor(Math.random()* eachSection.length), 1)//mdn splice : The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+	randomEachSection.push(theCards)
+	
+	
+}
+return randomEachSection
+
+
+}*/
+var numberOfClicks = 0
+var firstClickIndex = null
+var secondClickIndex = null
+
+
+let allCards = document.querySelectorAll('.card')
+console.log(allCards);
+for (let i = 0; i < allCards.length; i++){
+	allCards[i].addEventListener('click', theGame)
+
+	function theGame(event) {
+		console.log(event);
+		console.log(i);
+		numberOfClicks++
+		if (numberOfClicks === 1){
+			event.target.innerText = shuffleEachSection[i]
+			firstClickIndex = i
+			
+		}
+		else if (numberOfClicks === 2){
+			event.target.innerText = shuffleEachSection[i]
+			secondClickIndex = i
+			console.log((allCards[firstClickIndex].innerText.charCodeAt() == allCards[secondClickIndex].innerText.charCodeAt()));
+			
+			if (allCards[firstClickIndex].innerText.charCodeAt() == allCards[secondClickIndex].innerText.charCodeAt()){
+				console.log('you win!');
+				
+
+			}
+			else {
+				allCards[firstClickIndex].innerText = ''
+				allCards[secondClickIndex].innerText = ''
+
+
+			}
+			numberOfClicks = 0
+		}
+
+			//remove everything after done w second click 
+	
+	}
+	
+	
+}
+
+// .forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx & e is for an event 
+
+ 
+//  console.log(i);
+
+	 
+   
+	
+	
+
+
+
+
+//another idea 
+
+/* 
+*/
+/*var randomEachSection = []
+var x = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
+console.log(x);
+
+function eachSectionReturn() {
+	//while (eachSection.length <=0)
+	for (let i = 0; i < 10;i++)
+		{
+	
+	var y = x.splice(Math.floor(Math.random()*x.length), 1)
+	randomEachSection.push(y)
+	
+	console.log(y);
+	
+	
+}
+return randomEachSection
+
+
+}
+document.querySelectorAll('.one').forEach(section => section.addEventListener('click', theGame))
+function theGame(e) {
+	
+
+	let theSquares = eachSectionReturn()
+	console.log(theSquares);
+	
+	e.target.innerText = (theSquares)
+
+}*/
+
+
+
+//one idea 
+/*
+const eachSection = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
+const randomEachSection = []
+
+// function each randomizing the board
+function eachSectionReturn() {
+	//while (eachSection.length <=0)
+	for (let i = 0; i < 10;i++)
+		{
+	//let randomNumber = Math.floor(Math.random() * eachSection.length )
+	let theCards = eachSection.splice(Math.floor(Math.random()* eachSection.length), 1)//mdn splice : The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+	randomEachSection.push(theCards)
+}
+return randomEachSection
+
+
+}
+
+document.querySelectorAll('.card').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx & e is for an event 
+ function theGame(e, i) {
+ 
+ console.log(i);
+
+ 
+   
+	
+	let theSquares = eachSectionReturn()
+	e.target.innerText = theSquares[i]
+console.log(theSquares[i]);
+
+
+ }
+
+
+
+
+//one idea 
+/*
 const eachSection = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
 const randomEachSection = []
 
@@ -65,6 +220,124 @@ function theMatch() {
 		document.querySelector('#results').innerText = ('TRY AGAIN!')
 	}
    }
+
+*/
+//
+
+/*Note: I was very frustated with this project, I had multiple request for help and tried asking for help on stackoverflow, below is my new understanding on how to do project 
+here is the link to the stackoverflow: https://stackoverflow.com/a/79559582/29576377
+
+//const eachSection = ['🎀','🎀','🌸','🌸','💅','💅','👛','👛','🛍️','🛍️']
+//const theMatches = eachSection[Math.random() * eachSection.length]
+//console.log(theMatches);
+
+const letMakeCards = {
+	bow : "🎀",
+	bowone : "🎀",
+	flower : "🌸",
+	flowerone : "🌸",
+	nails: "💅",
+	nailsone: "💅",
+	purse: "👛",
+	purseone: "👛",
+	shopping: "🛍️",
+	shoppingone: "🛍️",
+}
+console.log(letMakeCards);
+
+const cards =Object.values(letMakeCards)
+console.log(cards);
+
+//const theCardsArray = cards[Math.random() * cards.length]
+//console.log(theCardsArray);
+
+function cardReturn() {
+	return cards[Math.random() * cards.length]
+}
+
+
+
+
+/*const slotMachine = {
+	cherry: "🍒",
+	lemon: "🍋",
+	watermelon: "🍉",
+	star: "⭐",
+	orange: "🍊",
+	bell: "🔔"
+	
+
+}
+console.log(slotMachine)
+const slots = Object.values(slotMachine)
+console.log(slots)
+
+function slotReturn() {
+	return slots[Math.random() * slots.length]
+}
+const randomEachSection = []
+//slots[Math.random() * slots.length]
+// function each randomizing the board
+function eachSectionReturn() {
+	//while (eachSection.length <=0)
+	for (let i = 0; i < 10;i++)
+		{
+	//let randomNumber = Math.floor(Math.random() * eachSection.length )
+	let theCards = Array.splice(0,1);//mdn splice : The splice() method of Array instances changes the contents of an array by removing or replacing existing elements and/or adding new elements in place
+	randomEachSection.push(theCards)
+}
+return randomEachSection
+
+
+}
+
+document.querySelectorAll('.card').forEach((section, i) => section.addEventListener('click', (e)=> theGame(e,i)))//note to self: i is for index, ()=>, allows you pass additional arguements to fx & e is for an event 
+ function theGame(e, i) {
+ 
+ console.log(i);
+
+ 
+   
+	
+	let theSquares = eachSectionReturn()
+	e.target.innerText = theSquares[i]
+console.log(theSquares[i]);
+
+
+ }
+
+function theMatch() {
+	let one = document.querySelector('#one').innerHTML
+	let two = document.querySelector('#two').innerHTML
+	let three = document.querySelector('#three').innerHTML
+	let four = document.querySelector('#four').innerHTML
+	let five = document.querySelector('#five').innerHTML
+	let six = document.querySelector('#six').innerHTML
+	let seven = document.querySelector('#seven').innerHTML
+	let eight = document.querySelector('#eight').innerHTML
+	let nine = document.querySelector('#nine').innerHTML
+	let ten = document.querySelector('#nine').innerHTML
+	
+
+
+   
+	if (one === two  || one === two || one === three || one === four || one === five || one === six|| one === seven || one === eight|| one === nine || one === ten || one !== '' ||
+		two === three || two === four ||  two === five || two === six|| two === seven || two === eight|| two === nine || two === ten || two !== '' ||
+		three === four ||  three === five || three === six|| three === seven || three === eight|| three === nine || three === ten || three !== '' ||
+		four === five || four === six|| four === seven || four === eight|| four === nine || four === ten || four !== '' ||
+		five === six|| five === seven || five=== eight|| five === nine || five=== ten || five !== '' ||
+		six === seven || six== eight|| six === nine || six === ten || six !== '' ||
+		seven == eight|| seven === nine || seven === ten || seven !== '' ||
+		 eight === nine || eight === ten || eight !== '' || nine  === ten || nine !== '')
+		 
+		 {
+			document.querySelector('#results').innerText = ('Its a MATCH')
+		 }
+	else
+	{
+		document.querySelector('#results').innerText = ('TRY AGAIN!')
+	}
+   }*/
 
 //note to self: I wrote my question on stackoverflow, and was given feedback on how to look at this problem a different way will give it a try 
 //Here I have to assign the cards a random value which was the issue I was having because each time the images were not correlating w the #
